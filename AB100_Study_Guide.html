@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AB-100 Certification Study Guide - Architect AI Solutions For Business Productivity</title>
+    <style>
+        :root {
+            --primary-color: #0078d4;
+            --secondary-color: #106ebe;
+            --accent-color: #005a9e;
+            --background-light: #f8f9fa;
+            --text-dark: #242424;
+            --text-medium: #484848;
+            --border-color: #e0e0e0;
+            --success-color: #107c10;
+            --warning-color: #ffaa44;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        header .subtitle {
+            color: var(--text-medium);
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        .exam-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .info-badge {
+            background: var(--background-light);
+            padding: 15px 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .info-badge strong {
+            color: var(--primary-color);
+            display: block;
+            font-size: 1.1em;
+        }
+        
+        nav {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        nav h2 {
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .module-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        
+        .module-link {
+            display: block;
+            padding: 15px 20px;
+            background: var(--background-light);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .module-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,120,212,0.3);
+        }
+        
+        .module-link.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+        
+        .module-number {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .module-link:hover .module-number {
+            background: white;
+            color: var(--primary-color);
+        }
+        
+        main {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .module-section {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .module-section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .module-header {
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .module-header h2 {
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: var(--background-light);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .section h3 {
+            color: var(--secondary-color);
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section h3::before {
+            content: '📌';
+        }
+        
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .section li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .section li:last-child {
+            border-bottom: none;
+        }
+        
+        .section li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+        
+        .key-concept {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid var(--warning-color);
+            margin: 20px 0;
+        }
+        
+        .key-concept h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .key-concept h4::before {
+            content: '⭐';
+        }
+        
+        .quiz-section {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid var(--success-color);
+            margin-top: 30px;
+        }
+        
+        .quiz-section h3 {
+            color: #155724;
+            margin-bottom: 20px;
+        }
+        
+        .quiz-question {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .quiz-question h4 {
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+        
+        .quiz-options label {
+            display: block;
+            padding: 12px 15px;
+            background: var(--background-light);
+            margin: 8px 0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .quiz-options label:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .quiz-options input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .show-answer {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+        
+        .show-answer:hover {
+            background: var(--secondary-color);
+        }
+        
+        .answer {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: #d4edda;
+            border-radius: 6px;
+            border-left: 4px solid var(--success-color);
+        }
+        
+        .progress-tracker {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            z-index: 1000;
+            min-width: 250px;
+        }
+        
+        .progress-bar {
+            background: var(--background-light);
+            border-radius: 10px;
+            height: 20px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, var(--success-color), #28a745);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 10px;
+        }
+        
+        .toc-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .toc-card {
+            background: var(--background-light);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .toc-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,120,212,0.15);
+        }
+        
+        .toc-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .toc-card ul {
+            list-style: none;
+            font-size: 0.9em;
+        }
+        
+        .toc-card li {
+            padding: 5px 0;
+            color: var(--text-medium);
+        }
+        
+        .toc-card li::before {
+            content: '• ';
+            color: var(--primary-color);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            margin-top: 30px;
+        }
+        
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--success-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .print-button:hover {
+            background: #0e630e;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                max-width: 100%;
+            }
+            .progress-tracker, .print-button {
+                display: none;
+            }
+            .module-section {
+                display: block !important;
+                page-break-inside: avoid;
+            }
+            header, main, nav, .toc-section {
+                box-shadow: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .exam-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .module-nav {
+                grid-template-columns: 1fr;
+            }
+            
+            main {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">📄 Print / Save as PDF</button>
+    
+    <div class="container">
+        <header>
+            <h1>🎯 AB-100 Certification Study Guide</h1>
+            <p class="subtitle">Architect AI Solutions For Business Productivity</p>
+            <p style="color: var(--text-medium); margin-top: 15px;">
+                Complete interactive study material covering all 11 modules from Microsoft Learn
+            </p>
+            
+            <div class="exam-info">
+                <div class="info-badge">
+                    <strong>📚 11 Modules</strong>
+                    Comprehensive coverage
+                </div>
+                <div class="info-badge">
+                    <strong>⏱️ Advanced Level</strong>
+                    Solution Architect Role
+                </div>
+                <div class="info-badge">
+                    <strong>🎓 Target Score</strong>
+                    90%+ with 20% effort
+                </div>
+                <div class="info-badge">
+                    <strong>📅 Updated</strong>
+                    June 2026
+                </div>
+            </div>
+        </header>
+        
+        <nav>
+            <h2>📖 Quick Navigation</h2>
+            <div class="module-nav">
+                <a href="#module-01" class="module-link" onclick="showModule('01'); return false;">
+                    <span class="module-number">01</span>
+                    Introduction to Agentic AI Business Solutions
+                </a>
+                <a href="#module-02" class="module-link" onclick="showModule('02'); return false;">
+                    <span class="module-number">02</span>
+                    Analyze Requirements for AI-Powered Business Solut...
+                </a>
+                <a href="#module-03" class="module-link" onclick="showModule('03'); return false;">
+                    <span class="module-number">03</span>
+                    Design Overall AI Strategy for Business Solutions
+                </a>
+                <a href="#module-04" class="module-link" onclick="showModule('04'); return false;">
+                    <span class="module-number">04</span>
+                    Evaluate Costs and Benefits of AI Solutions
+                </a>
+                <a href="#module-05" class="module-link" onclick="showModule('05'); return false;">
+                    <span class="module-number">05</span>
+                    Design AI Agents for Business Solutions
+                </a>
+                <a href="#module-06" class="module-link" onclick="showModule('06'); return false;">
+                    <span class="module-number">06</span>
+                    Design Extensibility of AI Solutions
+                </a>
+                <a href="#module-07" class="module-link" onclick="showModule('07'); return false;">
+                    <span class="module-number">07</span>
+                    Orchestrate Configuration of Prebuilt Agents and A...
+                </a>
+                <a href="#module-08" class="module-link" onclick="showModule('08'); return false;">
+                    <span class="module-number">08</span>
+                    Monitor, Analyze, and Tune AI Agents
+                </a>
+                <a href="#module-09" class="module-link" onclick="showModule('09'); return false;">
+                    <span class="module-number">09</span>
+                    Manage Testing AI-Powered Business Solutions
+                </a>
+                <a href="#module-10" class="module-link" onclick="showModule('10'); return false;">
+                    <span class="module-number">10</span>
+                    Design ALM Process for AI-Powered Business Solutio...
+                </a>
+                <a href="#module-11" class="module-link" onclick="showModule('11'); return false;">
+                    <span class="module-number">11</span>
+                    Design Responsible AI Security, Governance, Risk M...
+                </a>
+            </div>
+        </nav>
+        
+        <div class="toc-section">
+            <h2 style="color: var(--primary-color); margin-bottom: 20px;">📋 Exam Focus Areas - The Vital 20%</h2>
+            <p style="margin-bottom: 20px; color: var(--text-medium);">
+                Based on Pareto Principle (80/20 rule), focus on these high-yield topics to achieve 90%+ score:
+            </p>
+            <div class="toc-grid">
+                <div class="toc-card">
+                    <h4>Module 01: Introduction to Agentic AI Business Solu...</h4>
+                    <ul>
+                        <li>AI Architect role & responsibilities</li>
+                        <li>Microsoft AI technologies overview</li>
+                        <li>Copilot solutions & business value</li>
+                        <li>Scaling AI across enterprise</li>
+                    </ul>
+                </div>
+                <div class="toc-card">
+                    <h4>Module 02: Analyze Requirements for AI-Powered Busi...</h4>
+                    <ul>
+                        <li>AI agents for automation & analytics</li>
+                        <li>Grounding data quality (5 dimensions)</li>
+                        <li>Data organization for AI readiness</li>
+                        <li>Value assessment scenarios</li>
+                    </ul>
+                </div>
+                <div class="toc-card">
+                    <h4>Module 03: Design Overall AI Strategy for Business ...</h4>
+                    <ul>
+                        <li>Cloud Adoption Framework (CAF) phases</li>
+                        <li>Multi-agent solution design</li>
+                        <li>Build vs Buy vs Extend decisions</li>
+                        <li>Prompt engineering guidelines</li>
+                        <li>AI Center of Excellence</li>
+                    </ul>
+                </div>
+                <div class="toc-card">
+                    <h4>Module 04: Evaluate Costs and Benefits of AI Soluti...</h4>
+                    <ul>
+                        <li>ROI criteria & TCO calculation</li>
+                        <li>Model routing strategies</li>
+                        <li>Cost-benefit analysis framework</li>
+                        <li>When to use custom models</li>
+                    </ul>
+                </div>
+                <div class="toc-card">
+                    <h4>Module 05: Design AI Agents for Business Solutions...</h4>
+                    <ul>
+                        <li>Responsible AI principles</li>
+                        <li>Task vs Autonomous agents</li>
+                        <li>Copilot Studio design patterns</li>
+                        <li>Custom connectors integration</li>
+                        <li>Dynamics 365 Contact Center</li>
+                    </ul>
+                </div>
+                <div class="toc-card">
+                    <h4>Module 06: Design Extensibility of AI Solutions...</h4>
+                    <ul>
+                        <li>Microsoft Foundry custom models</li>
+                        <li>Model Context Protocol (MCP)</li>
+                        <li>Agent extensibility patterns</li>
+                        <li>Computer Use capabilities</li>
+                        <li>Optimization for M365</li>
+                    </ul>
+                </div>
+                <div class="toc-card">
+                    <h4>Module 07: Orchestrate Configuration of Prebuilt Ag...</h4>
+                    <ul>
+                        <li>Prebuilt Copilot configuration</li>
+                        <li>Finance & Supply Chain AI features</li>
+                        <li>Sales & Service orchestration</li>
+                        <li>Power Platform AI Hub</li>
+                    </ul>
+                </div>
+                <div class="toc-card">
+                    <h4>Module 08: Monitor, Analyze, and Tune AI Agents...</h4>
+                    <ul>
+                        <li>Monitoring frameworks</li>
+                        <li>Performance metrics & telemetry</li>
+                        <li>User feedback analysis</li>
+                        <li>AI-based diagnostic tools</li>
+                    </ul>
+                </div>
+                <div class="toc-card">
+                    <h4>Module 09: Manage Testing AI-Powered Business Solut...</h4>
+                    <ul>
+                        <li>Testing frameworks for AI agents</li>
+                        <li>Validation criteria for custom models</li>
+                        <li>End-to-end test scenarios</li>
+                        <li>Copilot for test case generation</li>
+                    </ul>
+                </div>
+                <div class="toc-card">
+                    <h4>Module 10: Design ALM Process for AI-Powered Busine...</h4>
+                    <ul>
+                        <li>ALM for datasets, prompts, models</li>
+                        <li>Environment governance</li>
+                        <li>Security across environments</li>
+                        <li>Dynamics 365 ALM processes</li>
+                    </ul>
+                </div>
+                <div class="toc-card">
+                    <h4>Module 11: Design Responsible AI Security, Governan...</h4>
+                    <ul>
+                        <li>Responsible AI principles implementation</li>
+                        <li>Identity & access controls</li>
+                        <li>Prompt manipulation mitigations</li>
+                        <li>Audit trails & compliance</li>
+                        <li>Data residency requirements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <main>
+
+            <div id="module-01" class="module-section active">
+                <div class="module-header">
+                    <h2>Module 1: Introduction to Agentic AI Business Solutions</h2>
+                </div>
+                
+                <div class="section">
+                    <h3>Learning Objectives</h3>
+                    <ul>
+                        <li>Explain the architect's role in driving AI adoption and transformation.</li>
+                        <li>Identify key responsibilities of an AI architect in business contexts.</li>
+                        <li>Understand how architects align AI solutions with organizational goals.</li>
+                        <li>Apply best practices for scaling AI across enterprise environments.</li>
+                        <li>Identify core Microsoft AI services and tools.</li>
+                        <li>Explore Microsoft Copilot solutions and their business value.</li>
+                        <li>Understand how generative AI unlocks productivity in enterprise environments.</li>
+                        <li>Identify OOB Microsoft AI agent resources available for business solutions.</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3>Key Topics Covered</h3>
+                    <ul>
+                        <li>Introduction</li>
+                        <li>Drive AI transformation with architect strategies</li>
+                        <li>Explore Microsoft AI technologies for business</li>
+                        <li>Identify Microsoft AI technologies for business solutions</li>
+                        <li>Identify out-of-box Microsoft AI agent resources for business solutions</li>
+                        <li>Identify out-of-box Microsoft AI agents for business</li>
+                        <li>Module assessment</li>
+                        <li>Summary</li>
+                    </ul>
+                </div>
+                
+                <div class="key-concept">
+                    <h4>High-Yield Exam Topics</h4>
+                    <p>Focus on understanding these concepts thoroughly:</p>
+                    <ul>
+                        <li>The AI architect's role in driving organizational transformation</li>
+                        <li>Microsoft's AI technology stack: Azure AI, Copilot Studio, Power Platform</li>
+                        <li>Out-of-box AI agents available in Microsoft ecosystem</li>
+                        <li>Strategies for scaling AI adoption enterprise-wide</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>📝 Practice Questions</h3>
+
+                    <div class="quiz-question">
+                        <h4>Question 1: Which of the following is NOT a core responsibility of an AI architect?</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q01_1" value="0">
+                                Aligning AI solutions with business goals
+                            </label>
+                            <label>
+                                <input type="radio" name="q01_1" value="1">
+                                Writing production code for all AI implementations
+                            </label>
+                            <label>
+                                <input type="radio" name="q01_1" value="2">
+                                Scaling AI adoption across the enterprise
+                            </label>
+                            <label>
+                                <input type="radio" name="q01_1" value="3">
+                                Identifying appropriate Microsoft AI services
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_01_1')">Show Answer</button>
+                        <div id="ans_01_1" class="answer">
+                            <strong>Correct Answer:</strong> Writing production code for all AI implementations - Architects focus on design and strategy, not necessarily hands-on coding.
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>Question 2: What are the three main categories of Microsoft AI solutions?</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q01_2" value="0">
+                                Azure AI Services, Microsoft Copilot, Power Platform AI
+                            </label>
+                            <label>
+                                <input type="radio" name="q01_2" value="1">
+                                Windows AI, Office AI, Cloud AI
+                            </label>
+                            <label>
+                                <input type="radio" name="q01_2" value="2">
+                                Basic AI, Advanced AI, Premium AI
+                            </label>
+                            <label>
+                                <input type="radio" name="q01_2" value="3">
+                                None of the above
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_01_2')">Show Answer</button>
+                        <div id="ans_01_2" class="answer">
+                            <strong>Correct Answer:</strong> Azure AI Services, Microsoft Copilot, Power Platform AI - These represent Microsoft's comprehensive AI ecosystem.
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+            <div id="module-02" class="module-section ">
+                <div class="module-header">
+                    <h2>Module 2: Analyze Requirements for AI-Powered Business Solutions</h2>
+                </div>
+                
+                <div class="section">
+                    <h3>Learning Objectives</h3>
+                    <ul>
+                        <li>Explain how AI agents support task automation, data analytics, and decision-making.</li>
+                        <li>Describe the role of Microsoft Copilot and generative AI in enhancing productivity.</li>
+                        <li>Assess scenarios where AI agents add measurable value to enterprise environments.</li>
+                        <li>Evaluate grounding data quality across accuracy, relevance, timeliness, cleanliness, and availability.</li>
+                        <li>Organize business solution data for AI readiness and scalable consumption.</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3>Key Topics Covered</h3>
+                    <ul>
+                        <li>Introduction</li>
+                        <li>Assess the use of agents in task automation, data analytics, and decision-making</li>
+                        <li>Review data for grounding accuracy, relevance, timeliness, cleanliness, and availability</li>
+                        <li>Organize business solution data for AI systems</li>
+                        <li>Module assessment</li>
+                        <li>Summary</li>
+                    </ul>
+                </div>
+                
+                <div class="key-concept">
+                    <h4>High-Yield Exam Topics</h4>
+                    <p>Focus on understanding these concepts thoroughly:</p>
+                    <ul>
+                        <li>Five dimensions of grounding data quality: Accuracy, Relevance, Timeliness, Cleanliness, Availability</li>
+                        <li>How AI agents support task automation vs data analytics vs decision-making</li>
+                        <li>Criteria for assessing when AI adds measurable business value</li>
+                        <li>Data organization patterns for AI consumption</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>📝 Practice Questions</h3>
+
+                    <div class="quiz-question">
+                        <h4>Question 1: Which is NOT one of the five dimensions of grounding data quality?</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q02_1" value="0">
+                                Accuracy
+                            </label>
+                            <label>
+                                <input type="radio" name="q02_1" value="1">
+                                Relevance
+                            </label>
+                            <label>
+                                <input type="radio" name="q02_1" value="2">
+                                Complexity
+                            </label>
+                            <label>
+                                <input type="radio" name="q02_1" value="3">
+                                Timeliness
+                            </label>
+                            <label>
+                                <input type="radio" name="q02_1" value="4">
+                                Availability
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_02_1')">Show Answer</button>
+                        <div id="ans_02_1" class="answer">
+                            <strong>Correct Answer:</strong> Complexity - The five dimensions are Accuracy, Relevance, Timeliness, Cleanliness, and Availability.
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>Question 2: AI agents are most valuable in which scenario?</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q02_2" value="0">
+                                Simple repetitive tasks only
+                            </label>
+                            <label>
+                                <input type="radio" name="q02_2" value="1">
+                                Complex decision-making with clear rules
+                            </label>
+                            <label>
+                                <input type="radio" name="q02_2" value="2">
+                                Tasks requiring human creativity exclusively
+                            </label>
+                            <label>
+                                <input type="radio" name="q02_2" value="3">
+                                Situations where data quality is poor
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_02_2')">Show Answer</button>
+                        <div id="ans_02_2" class="answer">
+                            <strong>Correct Answer:</strong> Complex decision-making with clear rules - AI agents excel at processing large datasets and applying consistent logic.
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+            <div id="module-03" class="module-section ">
+                <div class="module-header">
+                    <h2>Module 3: Design Overall AI Strategy for Business Solutions</h2>
+                </div>
+                
+                <div class="section">
+                    <h3>Learning Objectives</h3>
+                    <ul>
+                        <li>Map CAF's AI adoption phases to the AI agent lifecycle.</li>
+                        <li>Design an enterprise-ready operating model for AI agents.</li>
+                        <li>Select and apply Microsoft platforms for AI solutions.</li>
+                        <li>Utilize checklists to transition AI workloads from proof of concept to production.</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3>Key Topics Covered</h3>
+                    <ul>
+                        <li>Introduction</li>
+                        <li>Implement AI adoption process with Azure</li>
+                        <li>Design AI agents for business solutions</li>
+                        <li>Design a multi-agent solution</li>
+                        <li>Develop use cases for prebuilt Microsoft 365 Copilot agents</li>
+                        <li>Define solution rules and constraints for AI components</li>
+                        <li>Determine generative AI knowledge sources for agents built in Copilot Studio</li>
+                        <li>Determine when to build custom agents or extend Microsoft 365 Copilot</li>
+                        <li>Determine when custom AI models should be created</li>
+                        <li>Provide guidelines for creating a prompt library</li>
+                    </ul>
+                </div>
+                
+                <div class="key-concept">
+                    <h4>High-Yield Exam Topics</h4>
+                    <p>Focus on understanding these concepts thoroughly:</p>
+                    <ul>
+                        <li>Cloud Adoption Framework's 6 strategies: Plan, Ready, Adopt, Govern, Manage, Organize</li>
+                        <li>When to build custom agents vs extend M365 Copilot vs use prebuilt</li>
+                        <li>Decision criteria for custom AI model creation</li>
+                        <li>Prompt library best practices and prompt engineering techniques</li>
+                        <li>AI Center of Excellence components and governance</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>📝 Practice Questions</h3>
+
+                    <div class="quiz-question">
+                        <h4>Question 1: What does CAF stand for in Microsoft's AI adoption framework?</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q03_1" value="0">
+                                Common Application Framework
+                            </label>
+                            <label>
+                                <input type="radio" name="q03_1" value="1">
+                                Cloud Adoption Framework
+                            </label>
+                            <label>
+                                <input type="radio" name="q03_1" value="2">
+                                Corporate AI Foundation
+                            </label>
+                            <label>
+                                <input type="radio" name="q03_1" value="3">
+                                Centralized Analytics Facility
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_03_1')">Show Answer</button>
+                        <div id="ans_03_1" class="answer">
+                            <strong>Correct Answer:</strong> Cloud Adoption Framework - CAF provides proven guidance for AI adoption journey.
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>Question 2: When should you consider building a custom AI model instead of using existing services?</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q03_2" value="0">
+                                Always build custom for better control
+                            </label>
+                            <label>
+                                <input type="radio" name="q03_2" value="1">
+                                When specific domain requirements aren't met by prebuilt models
+                            </label>
+                            <label>
+                                <input type="radio" name="q03_2" value="2">
+                                Never, always use prebuilt
+                            </label>
+                            <label>
+                                <input type="radio" name="q03_2" value="3">
+                                Only for small projects
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_03_2')">Show Answer</button>
+                        <div id="ans_03_2" class="answer">
+                            <strong>Correct Answer:</strong> When specific domain requirements aren't met by prebuilt models - Custom models require significant investment and expertise.
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+            <div id="module-04" class="module-section ">
+                <div class="module-header">
+                    <h2>Module 4: Evaluate Costs and Benefits of AI Solutions</h2>
+                </div>
+                
+                <div class="section">
+                    <h3>Learning Objectives</h3>
+                    <ul>
+                        <li>Define ROI criteria and evaluate total cost of ownership (TCO) for AI solutions.</li>
+                        <li>Create a comprehensive ROI analysis for AI-powered business processes.</li>
+                        <li>Analyze and decide whether to build, buy, or extend AI components.</li>
+                        <li>Implement model routing strategies to optimize AI performance and cost.</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3>Key Topics Covered</h3>
+                    <ul>
+                        <li>Introduction</li>
+                        <li>Evaluate ROI criteria for AI-powered solutions</li>
+                        <li>Create ROI analysis for a proposed AI solution</li>
+                        <li>Analyze whether to build, buy, or extend AI components</li>
+                        <li>Implement a model router to intelligently route requests to the most suitable model</li>
+                        <li>Module assessment</li>
+                        <li>Summary</li>
+                    </ul>
+                </div>
+                
+                <div class="key-concept">
+                    <h4>High-Yield Exam Topics</h4>
+                    <p>Focus on understanding these concepts thoroughly:</p>
+                    <ul>
+                        <li>Total Cost of Ownership (TCO) components for AI solutions</li>
+                        <li>ROI calculation methodology for AI-powered processes</li>
+                        <li>Build vs Buy vs Extend decision framework</li>
+                        <li>Model routing strategies for cost-performance optimization</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>📝 Practice Questions</h3>
+
+                    <div class="quiz-question">
+                        <h4>Question 1: TCO in AI solutions includes:</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q04_1" value="0">
+                                Only licensing costs
+                            </label>
+                            <label>
+                                <input type="radio" name="q04_1" value="1">
+                                Development, deployment, operation, and maintenance costs
+                            </label>
+                            <label>
+                                <input type="radio" name="q04_1" value="2">
+                                Just the initial development cost
+                            </label>
+                            <label>
+                                <input type="radio" name="q04_1" value="3">
+                                Hardware costs only
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_04_1')">Show Answer</button>
+                        <div id="ans_04_1" class="answer">
+                            <strong>Correct Answer:</strong> Development, deployment, operation, and maintenance costs - TCO encompasses all costs throughout the solution lifecycle.
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>Question 2: Model routing is primarily used to:</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q04_2" value="0">
+                                Increase complexity
+                            </label>
+                            <label>
+                                <input type="radio" name="q04_2" value="1">
+                                Optimize cost and performance by selecting appropriate models
+                            </label>
+                            <label>
+                                <input type="radio" name="q04_2" value="2">
+                                Reduce security
+                            </label>
+                            <label>
+                                <input type="radio" name="q04_2" value="3">
+                                Eliminate the need for testing
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_04_2')">Show Answer</button>
+                        <div id="ans_04_2" class="answer">
+                            <strong>Correct Answer:</strong> Optimize cost and performance by selecting appropriate models - Route simple queries to smaller models, complex ones to larger models.
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+            <div id="module-05" class="module-section ">
+                <div class="module-header">
+                    <h2>Module 5: Design AI Agents for Business Solutions</h2>
+                </div>
+                
+                <div class="section">
+                    <h3>Learning Objectives</h3>
+                    <ul>
+                        <li>Apply Responsible AI principles to AI agent design.</li>
+                        <li>Configure business terms and customize Copilot in Dynamics 365.</li>
+                        <li>Design custom connectors and integrate AI agents with Dynamics 365 Contact Center.</li>
+                        <li>Build task-focused and autonomous agents using Copilot Studio.</li>
+                        <li>Implement prompt-driven conversational agents with adaptive responses.</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3>Key Topics Covered</h3>
+                    <ul>
+                        <li>Introduction</li>
+                        <li>Define core tenets of responsible AI guidelines for AI business solutions</li>
+                        <li>Design business terms for Copilot in Dynamics 365 Customer Service</li>
+                        <li>Design customizations for Copilot in Dynamics 365 apps</li>
+                        <li>Design connectors for Copilot in Dynamics 365 Sales</li>
+                        <li>Design AI agents for Dynamics 365 Contact Center</li>
+                        <li>Design task agents in Microsoft Copilot Studio</li>
+                        <li>Design autonomous agents in Copilot Studio</li>
+                        <li>Design prompt-driven agents using Copilot Studio</li>
+                        <li>Propose Foundry tools given a requirement</li>
+                    </ul>
+                </div>
+                
+                <div class="key-concept">
+                    <h4>High-Yield Exam Topics</h4>
+                    <p>Focus on understanding these concepts thoroughly:</p>
+                    <ul>
+                        <li>Six Responsible AI principles: Fairness, Reliability, Privacy, Inclusiveness, Transparency, Accountability</li>
+                        <li>Task agents vs Autonomous agents in Copilot Studio</li>
+                        <li>Custom connector design for Dynamics 365 integration</li>
+                        <li>Prompt-driven conversational agent patterns</li>
+                        <li>Well-Architected Framework application to intelligent workloads</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>📝 Practice Questions</h3>
+
+                    <div class="quiz-question">
+                        <h4>Question 1: Which is NOT one of Microsoft's Responsible AI principles?</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q05_1" value="0">
+                                Fairness
+                            </label>
+                            <label>
+                                <input type="radio" name="q05_1" value="1">
+                                Profitability
+                            </label>
+                            <label>
+                                <input type="radio" name="q05_1" value="2">
+                                Transparency
+                            </label>
+                            <label>
+                                <input type="radio" name="q05_1" value="3">
+                                Accountability
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_05_1')">Show Answer</button>
+                        <div id="ans_05_1" class="answer">
+                            <strong>Correct Answer:</strong> Profitability - The six principles are Fairness, Reliability & Safety, Privacy & Security, Inclusiveness, Transparency, Accountability.
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>Question 2: Task agents in Copilot Studio are designed to:</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q05_2" value="0">
+                                Operate completely autonomously
+                            </label>
+                            <label>
+                                <input type="radio" name="q05_2" value="1">
+                                Complete specific, well-defined tasks
+                            </label>
+                            <label>
+                                <input type="radio" name="q05_2" value="2">
+                                Replace all human workers
+                            </label>
+                            <label>
+                                <input type="radio" name="q05_2" value="3">
+                                Work without any prompts
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_05_2')">Show Answer</button>
+                        <div id="ans_05_2" class="answer">
+                            <strong>Correct Answer:</strong> Complete specific, well-defined tasks - Task agents handle defined workflows, while autonomous agents have broader capabilities.
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+            <div id="module-06" class="module-section ">
+                <div class="module-header">
+                    <h2>Module 6: Design Extensibility of AI Solutions</h2>
+                </div>
+                
+                <div class="section">
+                    <h3>Learning Objectives</h3>
+                    <ul>
+                        <li>Design scalable and secure AI solutions using Microsoft platforms.</li>
+                        <li>Leverage custom models in Microsoft Foundry.</li>
+                        <li>Design and operationalize agents in Microsoft 365 Copilot.</li>
+                        <li>Extend agent capabilities using Copilot Studio and Model Context Protocol (MCP).</li>
+                        <li>Apply governance and lifecycle management for AI solutions.</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3>Key Topics Covered</h3>
+                    <ul>
+                        <li>Introduction</li>
+                        <li>Design AI solutions with custom models in Microsoft Foundry</li>
+                        <li>Design agents in Microsoft 365 Copilot</li>
+                        <li>Design extensible agents in Microsoft Copilot Studio</li>
+                        <li>Design extensible agents using MCP in Copilot Studio</li>
+                        <li>Design agents to automate tasks in apps and websites with Computer Use in Copilot Studio</li>
+                        <li>Design agent behaviors in Copilot Studio</li>
+                        <li>Optimize solution design for agents in Microsoft 365</li>
+                        <li>Module assessment</li>
+                        <li>Summary</li>
+                    </ul>
+                </div>
+                
+                <div class="key-concept">
+                    <h4>High-Yield Exam Topics</h4>
+                    <p>Focus on understanding these concepts thoroughly:</p>
+                    <ul>
+                        <li>Microsoft Foundry capabilities for custom model deployment</li>
+                        <li>Model Context Protocol (MCP) for agent extensibility</li>
+                        <li>Computer Use feature for automating tasks across apps</li>
+                        <li>Agent behaviors: reasoning modes, voice capabilities</li>
+                        <li>Optimization strategies for Teams and SharePoint integration</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>📝 Practice Questions</h3>
+
+                    <div class="quiz-question">
+                        <h4>Question 1: What does MCP stand for in agent extensibility?</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q06_1" value="0">
+                                Microsoft Cloud Platform
+                            </label>
+                            <label>
+                                <input type="radio" name="q06_1" value="1">
+                                Model Context Protocol
+                            </label>
+                            <label>
+                                <input type="radio" name="q06_1" value="2">
+                                Multi-Channel Processing
+                            </label>
+                            <label>
+                                <input type="radio" name="q06_1" value="3">
+                                Machine Learning Core Protocol
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_06_1')">Show Answer</button>
+                        <div id="ans_06_1" class="answer">
+                            <strong>Correct Answer:</strong> Model Context Protocol - MCP enables standardized communication between AI models and external tools/data sources.
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>Question 2: Computer Use feature in Copilot Studio allows agents to:</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q06_2" value="0">
+                                Only analyze images
+                            </label>
+                            <label>
+                                <input type="radio" name="q06_2" value="1">
+                                Automate tasks across applications and websites
+                            </label>
+                            <label>
+                                <input type="radio" name="q06_2" value="2">
+                                Replace computers
+                            </label>
+                            <label>
+                                <input type="radio" name="q06_2" value="3">
+                                Use more computing power
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_06_2')">Show Answer</button>
+                        <div id="ans_06_2" class="answer">
+                            <strong>Correct Answer:</strong> Automate tasks across applications and websites - Computer Use enables agents to interact with UIs like humans do.
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+            <div id="module-07" class="module-section ">
+                <div class="module-header">
+                    <h2>Module 7: Orchestrate Configuration of Prebuilt Agents and Apps</h2>
+                </div>
+                
+                <div class="section">
+                    <h3>Learning Objectives</h3>
+                    <ul>
+                        <li>Orchestrate AI features and Copilot agents across Dynamics 365 and Microsoft 365 applications.</li>
+                        <li>Design secure, compliant, and extensible AI solutions.</li>
+                        <li>Configure and operationalize prebuilt Copilot agents for finance, supply chain, sales, and service scenarios.</li>
+                        <li>Apply best practices for responsible AI, workflow integration, and success measurement.</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3>Key Topics Covered</h3>
+                    <ul>
+                        <li>Introduction</li>
+                        <li>Design AI solutions for Dynamics 365 Customer Service</li>
+                        <li>Propose Microsoft 365 agents for business scenarios</li>
+                        <li>Orchestrate and configure Microsoft 365 Copilot for sales and service</li>
+                        <li>Propose Microsoft Power Platform AI features</li>
+                        <li>Design interoperable agent experiences for Finance and Operations</li>
+                        <li>Recommend process knowledge sources for in-app help in Dynamics 365</li>
+                        <li>Orchestrate AI features in Dynamics 365 Finance and Supply Chain</li>
+                        <li>Module assessment</li>
+                        <li>Summary</li>
+                    </ul>
+                </div>
+                
+                <div class="key-concept">
+                    <h4>High-Yield Exam Topics</h4>
+                    <p>Focus on understanding these concepts thoroughly:</p>
+                    <ul>
+                        <li>Prebuilt Copilot agents for Finance, Supply Chain, Sales, Service</li>
+                        <li>Configuration steps for operationalizing Copilot experiences</li>
+                        <li>Process knowledge sources for in-app help</li>
+                        <li>Interoperability patterns for cross-application agents</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>📝 Practice Questions</h3>
+
+                    <div class="quiz-question">
+                        <h4>Question 1: Prebuilt Copilot agents are available for which Dynamics 365 applications?</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q07_1" value="0">
+                                Only Sales
+                            </label>
+                            <label>
+                                <input type="radio" name="q07_1" value="1">
+                                Finance, Supply Chain, Sales, Service
+                            </label>
+                            <label>
+                                <input type="radio" name="q07_1" value="2">
+                                Only Customer Service
+                            </label>
+                            <label>
+                                <input type="radio" name="q07_1" value="3">
+                                None
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_07_1')">Show Answer</button>
+                        <div id="ans_07_1" class="answer">
+                            <strong>Correct Answer:</strong> Finance, Supply Chain, Sales, Service - Microsoft provides industry-specific prebuilt agents across D365 suite.
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>Question 2: Process knowledge sources in Dynamics 365 Finance provide:</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q07_2" value="0">
+                                Financial reports only
+                            </label>
+                            <label>
+                                <input type="radio" name="q07_2" value="1">
+                                In-app contextual help and guidance
+                            </label>
+                            <label>
+                                <input type="radio" name="q07_2" value="2">
+                                External documentation links
+                            </label>
+                            <label>
+                                <input type="radio" name="q07_2" value="3">
+                                Video tutorials
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_07_2')">Show Answer</button>
+                        <div id="ans_07_2" class="answer">
+                            <strong>Correct Answer:</strong> In-app contextual help and guidance - They deliver relevant information within the workflow context.
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+            <div id="module-08" class="module-section ">
+                <div class="module-header">
+                    <h2>Module 8: Monitor, Analyze, and Tune AI Agents</h2>
+                </div>
+                
+                <div class="section">
+                    <h3>Learning Objectives</h3>
+                    <ul>
+                        <li>Establish monitoring frameworks for AI agents.</li>
+                        <li>Apply industry tools and processes for observability.</li>
+                        <li>Analyze backlogs and user feedback for actionable insights.</li>
+                        <li>Apply AI-based diagnostic and tuning methods.</li>
+                        <li>Monitor performance and metrics to optimize agent workflows.</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3>Key Topics Covered</h3>
+                    <ul>
+                        <li>Introduction</li>
+                        <li>Recommend process tools for monitoring agents</li>
+                        <li>Analyze backlog and user feedback for AI agent usage</li>
+                        <li>Apply AI-based tools to analyze, identify issues, and perform tuning</li>
+                        <li>Monitor AI agent performance metrics</li>
+                        <li>Interpret telemetry data to tune AI performance</li>
+                        <li>Module assessment</li>
+                        <li>Ensure reliable AI agent operations</li>
+                    </ul>
+                </div>
+                
+                <div class="key-concept">
+                    <h4>High-Yield Exam Topics</h4>
+                    <p>Focus on understanding these concepts thoroughly:</p>
+                    <ul>
+                        <li>Key performance metrics for AI agents: accuracy, latency, user satisfaction</li>
+                        <li>Telemetry data interpretation for model tuning</li>
+                        <li>Backlog analysis techniques for continuous improvement</li>
+                        <li>AI-based diagnostic tools for issue identification</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>📝 Practice Questions</h3>
+
+                    <div class="quiz-question">
+                        <h4>Question 1: Key metrics for monitoring AI agents include:</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q08_1" value="0">
+                                Only response time
+                            </label>
+                            <label>
+                                <input type="radio" name="q08_1" value="1">
+                                Accuracy, latency, user satisfaction, completion rate
+                            </label>
+                            <label>
+                                <input type="radio" name="q08_1" value="2">
+                                Number of users only
+                            </label>
+                            <label>
+                                <input type="radio" name="q08_1" value="3">
+                                Server uptime only
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_08_1')">Show Answer</button>
+                        <div id="ans_08_1" class="answer">
+                            <strong>Correct Answer:</strong> Accuracy, latency, user satisfaction, completion rate - Multiple metrics provide holistic view of agent performance.
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>Question 2: Telemetry data is primarily used for:</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q08_2" value="0">
+                                Billing purposes
+                            </label>
+                            <label>
+                                <input type="radio" name="q08_2" value="1">
+                                Performance analysis and model tuning
+                            </label>
+                            <label>
+                                <input type="radio" name="q08_2" value="2">
+                                Marketing
+                            </label>
+                            <label>
+                                <input type="radio" name="q08_2" value="3">
+                                Employee monitoring
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_08_2')">Show Answer</button>
+                        <div id="ans_08_2" class="answer">
+                            <strong>Correct Answer:</strong> Performance analysis and model tuning - Telemetry provides insights into actual usage patterns and issues.
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+            <div id="module-09" class="module-section ">
+                <div class="module-header">
+                    <h2>Module 9: Manage Testing AI-Powered Business Solutions</h2>
+                </div>
+                
+                <div class="section">
+                    <h3>Learning Objectives</h3>
+                    <ul>
+                        <li>Design structured testing processes for AI agents, custom models, and multi-application scenarios.</li>
+                        <li>Define measurable validation criteria for performance, safety, and compliance.</li>
+                        <li>Implement scalable testing strategies using Copilot for consistency and coverage.</li>
+                        <li>Ensure AI solutions align with enterprise goals and remain trustworthy throughout their lifecycle.</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3>Key Topics Covered</h3>
+                    <ul>
+                        <li>Introduction</li>
+                        <li>Recommend process metrics for testing AI agents</li>
+                        <li>Create validation criteria for custom AI models</li>
+                        <li>Validate effective Copilot prompt best practices</li>
+                        <li>Design end-to-end test scenarios for AI solutions using multiple Dynamics 365 apps</li>
+                        <li>Build a strategy for creating test cases using Copilot</li>
+                        <li>Module assessment</li>
+                        <li>Summary</li>
+                    </ul>
+                </div>
+                
+                <div class="key-concept">
+                    <h4>High-Yield Exam Topics</h4>
+                    <p>Focus on understanding these concepts thoroughly:</p>
+                    <ul>
+                        <li>Testing framework components for AI solutions</li>
+                        <li>Validation criteria for custom AI models</li>
+                        <li>End-to-end testing across multiple Dynamics 365 apps</li>
+                        <li>Using Copilot to generate comprehensive test cases</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>📝 Practice Questions</h3>
+
+                    <div class="quiz-question">
+                        <h4>Question 1: Testing AI solutions requires validation of:</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q09_1" value="0">
+                                Only functional requirements
+                            </label>
+                            <label>
+                                <input type="radio" name="q09_1" value="1">
+                                Performance, safety, compliance, and accuracy
+                            </label>
+                            <label>
+                                <input type="radio" name="q09_1" value="2">
+                                Code syntax only
+                            </label>
+                            <label>
+                                <input type="radio" name="q09_1" value="3">
+                                User interface only
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_09_1')">Show Answer</button>
+                        <div id="ans_09_1" class="answer">
+                            <strong>Correct Answer:</strong> Performance, safety, compliance, and accuracy - AI testing must cover multiple dimensions beyond traditional software testing.
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>Question 2: End-to-end testing for AI solutions should include:</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q09_2" value="0">
+                                Individual component testing only
+                            </label>
+                            <label>
+                                <input type="radio" name="q09_2" value="1">
+                                Cross-application workflows and integrations
+                            </label>
+                            <label>
+                                <input type="radio" name="q09_2" value="2">
+                                Documentation review only
+                            </label>
+                            <label>
+                                <input type="radio" name="q09_2" value="3">
+                                User training only
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_09_2')">Show Answer</button>
+                        <div id="ans_09_2" class="answer">
+                            <strong>Correct Answer:</strong> Cross-application workflows and integrations - E2E testing validates complete business processes across systems.
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+            <div id="module-10" class="module-section ">
+                <div class="module-header">
+                    <h2>Module 10: Design ALM Process for AI-Powered Business Solutions</h2>
+                </div>
+                
+                <div class="section">
+                    <h3>Learning Objectives</h3>
+                    <ul>
+                        <li>Design ALM processes for AI components like datasets, prompts, and models.</li>
+                        <li>Establish governance, security, and monitoring across environments.</li>
+                        <li>Ensure consistent and compliant AI behavior from development to production.</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3>Key Topics Covered</h3>
+                    <ul>
+                        <li>Introduction</li>
+                        <li>Design an ALM process for data used in AI models and agents</li>
+                        <li>Design an ALM process for Copilot Studio agents, connectors, and actions</li>
+                        <li>Design ALM processes for Microsoft Foundry agents</li>
+                        <li>Design an ALM process for custom AI models</li>
+                        <li>Design an ALM process for AI in Dynamics 365 Finance and Supply Chain</li>
+                        <li>Design ALM processes for AI in Dynamics 365 apps</li>
+                        <li>Module assessment</li>
+                        <li>Summary</li>
+                    </ul>
+                </div>
+                
+                <div class="key-concept">
+                    <h4>High-Yield Exam Topics</h4>
+                    <p>Focus on understanding these concepts thoroughly:</p>
+                    <ul>
+                        <li>ALM processes for prompts, datasets, and models</li>
+                        <li>Environment strategy: Development, Test, Production</li>
+                        <li>Governance and security controls across environments</li>
+                        <li>Specific ALM considerations for Dynamics 365 Finance and Customer Experience</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>📝 Practice Questions</h3>
+
+                    <div class="quiz-question">
+                        <h4>Question 1: ALM stands for:</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q10_1" value="0">
+                                Automated Learning Machine
+                            </label>
+                            <label>
+                                <input type="radio" name="q10_1" value="1">
+                                Application Lifecycle Management
+                            </label>
+                            <label>
+                                <input type="radio" name="q10_1" value="2">
+                                Artificial Language Model
+                            </label>
+                            <label>
+                                <input type="radio" name="q10_1" value="3">
+                                Advanced Logic Module
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_10_1')">Show Answer</button>
+                        <div id="ans_10_1" class="answer">
+                            <strong>Correct Answer:</strong> Application Lifecycle Management - ALM ensures consistent governance from development through production.
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>Question 2: AI ALM processes must manage which components?</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q10_2" value="0">
+                                Only code
+                            </label>
+                            <label>
+                                <input type="radio" name="q10_2" value="1">
+                                Datasets, prompts, models, and configurations
+                            </label>
+                            <label>
+                                <input type="radio" name="q10_2" value="2">
+                                Only documentation
+                            </label>
+                            <label>
+                                <input type="radio" name="q10_2" value="3">
+                                Only user permissions
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_10_2')">Show Answer</button>
+                        <div id="ans_10_2" class="answer">
+                            <strong>Correct Answer:</strong> Datasets, prompts, models, and configurations - AI solutions have unique artifacts requiring version control and governance.
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+            <div id="module-11" class="module-section ">
+                <div class="module-header">
+                    <h2>Module 11: Design Responsible AI Security, Governance, Risk Management, and Compliance</h2>
+                </div>
+                
+                <div class="section">
+                    <h3>Learning Objectives</h3>
+                    <ul>
+                        <li>Design AI systems that balance innovation with accountability.</li>
+                        <li>Apply identity, access control, and data governance to secure AI agents.</li>
+                        <li>Implement observability and threat protection for AI solutions.</li>
+                        <li>Translate compliance requirements into technical controls.</li>
+                        <li>Mitigate vulnerabilities across prompts, models, and workflows.</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3>Key Topics Covered</h3>
+                    <ul>
+                        <li>Introduction</li>
+                        <li>Design security agents for Microsoft clouds</li>
+                        <li>Design governance models for AI agents</li>
+                        <li>Design model security for responsible AI</li>
+                        <li>Analyze AI vulnerabilities and mitigations for prompt manipulation</li>
+                        <li>Review solution adherence to Responsible AI principles</li>
+                        <li>Validate data residency and movement compliance</li>
+                        <li>Design access controls for grounding data and model tuning</li>
+                        <li>Design audit trails for changes to models and data</li>
+                        <li>Module assessment</li>
+                    </ul>
+                </div>
+                
+                <div class="key-concept">
+                    <h4>High-Yield Exam Topics</h4>
+                    <p>Focus on understanding these concepts thoroughly:</p>
+                    <ul>
+                        <li>Responsible AI principles implementation in technical controls</li>
+                        <li>Microsoft Entra ID and RBAC for AI agent security</li>
+                        <li>Prompt injection attack vectors and mitigations</li>
+                        <li>Data residency and sovereignty compliance requirements</li>
+                        <li>Audit trail requirements for model and data changes</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>📝 Practice Questions</h3>
+
+                    <div class="quiz-question">
+                        <h4>Question 1: Which is a common prompt manipulation attack?</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q11_1" value="0">
+                                Prompt injection
+                            </label>
+                            <label>
+                                <input type="radio" name="q11_1" value="1">
+                                Prompt encryption
+                            </label>
+                            <label>
+                                <input type="radio" name="q11_1" value="2">
+                                Prompt compression
+                            </label>
+                            <label>
+                                <input type="radio" name="q11_1" value="3">
+                                Prompt formatting
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_11_1')">Show Answer</button>
+                        <div id="ans_11_1" class="answer">
+                            <strong>Correct Answer:</strong> Prompt injection - Attackers inject malicious instructions to override intended behavior.
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>Question 2: Data residency requirements refer to:</h4>
+                        <div class="quiz-options">
+                            <label>
+                                <input type="radio" name="q11_2" value="0">
+                                Where data can be stored geographically
+                            </label>
+                            <label>
+                                <input type="radio" name="q11_2" value="1">
+                                Who can access data
+                            </label>
+                            <label>
+                                <input type="radio" name="q11_2" value="2">
+                                How long data is retained
+                            </label>
+                            <label>
+                                <input type="radio" name="q11_2" value="3">
+                                Data format standards
+                            </label>
+                        </div>
+                        <button class="show-answer" onclick="toggleAnswer('ans_11_2')">Show Answer</button>
+                        <div id="ans_11_2" class="answer">
+                            <strong>Correct Answer:</strong> Where data can be stored geographically - Regulations may require data to remain within specific jurisdictions.
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </main>
+        
+        <footer>
+            <p>© 2025 AB-100 Study Guide | Based on Microsoft Learn Content</p>
+            <p>Last Updated: June 28, 2026</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                This study guide is designed to help you prepare for the AB-100 certification exam. 
+                Focus on the highlighted key concepts and practice questions for optimal results.
+            </p>
+        </footer>
+        
+        <div class="progress-tracker">
+            <strong>📊 Study Progress</strong>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                Modules Completed: <span id="modulesCompleted">0</span>/11
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        function showModule(moduleNum) {
+            // Hide all sections
+            document.querySelectorAll('.module-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            const targetSection = document.getElementById('module-' + moduleNum);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            
+            // Update navigation
+            document.querySelectorAll('.module-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.closest('.module-link').classList.add('active');
+            
+            // Track progress
+            updateProgress();
+        }
+        
+        function toggleAnswer(answerId) {
+            const answer = document.getElementById(answerId);
+            if (answer) {
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            }
+        }
+        
+        function updateProgress() {
+            const completed = new Set();
+            document.querySelectorAll('.module-section.active').forEach(section => {
+                const moduleId = section.id.replace('module-', '');
+                completed.add(moduleId);
+            });
+            
+            const percentage = (completed.size / 11) * 100;
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('modulesCompleted').textContent = completed.size;
+        }
+        
+        // Initialize first module as active
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress();
+        });
+        
+        // Track reading time for engagement
+        let timeSpent = 0;
+        setInterval(() => {
+            timeSpent++;
+            console.log('Study time: ' + Math.floor(timeSpent / 60) + ' minutes');
+        }, 1000);
+    </script>
+</body>
+</html>
